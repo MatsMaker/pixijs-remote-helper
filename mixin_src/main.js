@@ -19,7 +19,17 @@ let initer = setInterval(() => {
       (container, ...data) => {
         proxy.sentRootContainer(container, ["name", "visible"]);
       },
-      3000
+      300
+    );
+
+    pixiMixin.registerHook(
+      pixiMixin.hooksTypes.beforeRender,
+      function(container, ...data) {
+        proxy.addListener('mixin-updateItem', (params) => {
+          container[params.property] = params.value;
+        });
+      },
+      300
     );
 
     clearInterval(initer);

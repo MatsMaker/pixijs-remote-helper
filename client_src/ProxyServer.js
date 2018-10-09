@@ -12,4 +12,12 @@ export default class ProxyServer extends AbstractProxyServer {
     this._roomEmit(this._room + 'getRootContainer', preparedData);
   }
 
+  updateItem(path, property, value) {
+    this._roomEmit(this._room + 'updateItem', {
+      path,
+      property,
+      value
+    });
+  }
+
 }

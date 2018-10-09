@@ -18,6 +18,7 @@
 </template>
 <script>
 import TreeItem from "./TreeItem.vue";
+import proxy from "../proxy";
 
 export default {
   name: "TreeItem",
@@ -35,6 +36,8 @@ export default {
     },
     onHide(e) {
       e.stopPropagation();
+      debugger;
+      proxy.updateItem('Container', 'visible', !this.model.visible);
     }
   }
 };

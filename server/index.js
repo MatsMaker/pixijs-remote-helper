@@ -13,7 +13,12 @@ io.on('connection', function (socket) {
   console.log('join new user');
 
   socket.on(mixinRoomPrefix + 'rootContainer', (data) => {
-    socket.broadcast.emit('client-rootContainer', data);
+    socket.broadcast.emit(clientRoomPrefix + 'rootContainer', data);
+  });
+
+  socket.on(clientRoomPrefix + 'updateItem', (data) => {
+    console.log('updateItem', data);
+    socket.broadcast.emit(mixinRoomPrefix + 'updateItem', data);
   });
 
 });
