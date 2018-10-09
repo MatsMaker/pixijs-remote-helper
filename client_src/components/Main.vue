@@ -1,12 +1,17 @@
 <template>
-  <div>{{ msg }}</div>
+  <div>{{ msg }}
+    <TreeView></TreeView>
+  </div>
 </template>
 
 <script>
+  import TreeView from './TreeView.vue';
+
   export default {
+    components: { TreeView },
     data() {
       return {
-        msg: "Hi!"
+        msg: "Root:"
       }
     }
   }
