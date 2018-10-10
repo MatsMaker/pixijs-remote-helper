@@ -7,9 +7,8 @@ export default class ProxyServer extends AbstractProxyServer {
     super(host, room);
   }
 
-  sentRootContainer(data, properties = ["name"]) { // not use "parent" it will create infinity recursive
-    const preparedData = this._prepareContainer(data, properties);
-    this._roomEmit(this._room + 'rootContainer', preparedData);
+  sentRootContainer(data) {
+    this._roomEmit(this._room + 'rootContainer', data);
   }
 
 }

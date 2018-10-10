@@ -37,8 +37,8 @@ export default {
     },
     onHide(e) {
       e.stopPropagation();
-      const patch = transporter.createPathToItem(this.model);
-      proxy.updateItem(patch, 'visible', !this.model.visible);
+      // const patch = transporter.createPathToItem(this.model);
+      proxy.updateItem(this.model.__index, 'visible', !this.model.visible);
     }
   }
 };

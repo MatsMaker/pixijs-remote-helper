@@ -4,19 +4,6 @@ import uuidv4 from "uuid/v4";
 const MARKER_ROOT = '#';
 const PATH_SPLIT = '/';
 
-export function onlyProperty(properties, container, lightweight = null) {
-  if (isNull(lightweight)) {
-    lightweight = {}
-  }
-  properties.map(name => {
-    lightweight[name] = container[name];
-  });
-  lightweight.children = container.children.map(chaild =>
-    onlyProperty(properties, chaild)
-  );
-  return lightweight;
-}
-
 
 export function createPathToItem(pixiItem, separator = PATH_SPLIT, path = '') {
   path = pixiItem.name + separator + path;

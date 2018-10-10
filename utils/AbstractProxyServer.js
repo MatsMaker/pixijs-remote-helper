@@ -27,9 +27,4 @@ export default class AbstractProxyServer {
     this._io.emit(event, data);
   }
 
-  _prepareContainer(container, properties) {
-    const lightweight = onlyProperty(properties, container);
-    return JSON.stringify(lightweight);
-  }
-
 }

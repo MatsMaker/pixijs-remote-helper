@@ -3,7 +3,7 @@ import runHooks from "./runHooks";
 const beforeRender = Symbol("beforeRender");
 const afterRender = Symbol("afterRender");
 
-export default class PixiMixin {
+export default class PixiInjector {
 
   constructor(pixiInstance) {
     this._pixiInstance = pixiInstance;
@@ -77,6 +77,14 @@ export default class PixiMixin {
         this._hooks[type].splice(index, 1);
       }
     };
+  }
+  
+  registerBeforeRenderHook(callback, ms = 0) {
+    this.registerHook(this.hooksTypes.afterRender, callback, ms);
+  }
+
+  registerAfterRenderHook(callback, ms = 0) {
+    this.registerHook(this.hooksTypes.beforeRender, callback, ms);
   }
 
 }
