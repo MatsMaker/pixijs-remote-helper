@@ -4,7 +4,7 @@
     @click="onClick">
     <div>
       <span>{{ model.name }}</span>
-      <span @click="onHide">[toogle visible]</span>
+      <span @click="onHide">{visible: {{ this.model.visible }}}</span>
     </div>
     <div v-for="(item, index) in model.children"
       v-bind:class="{collapse: isCollapse }"
@@ -19,6 +19,7 @@
 <script>
 import TreeItem from "./TreeItem.vue";
 import proxy from "../proxy";
+import * as transporter from '../../utils/transporter';
 
 export default {
   name: "TreeItem",
@@ -36,8 +37,8 @@ export default {
     },
     onHide(e) {
       e.stopPropagation();
-      debugger;
-      proxy.updateItem('Container', 'visible', !this.model.visible);
+      const patch = transporter.createPathToItem(this.model);
+      proxy.updateItem(patch, 'visible', !this.model.visible);
     }
   }
 };

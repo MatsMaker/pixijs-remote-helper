@@ -23,28 +23,6 @@ export default class AbstractProxyServer {
     this._io.on(name, fn);
   }
 
-  createPathToItem(pixiItem, separator = '/', startpath = '') {
-    let path = startpath;
-    if (pixiItem.parent) {
-      path = this.createPathToItem(pixiItem, separator, path);
-    }
-    return path;
-  }
-
-  restoreParentFoItems(container, parent = null) {
-    container.children.map((item) => {
-      return this._restoreParentFoItems(item, container);
-    });
-    return container;
-  }
-
-  _restoreParentFoItems(container, parent = null) {
-    container.parent = parent;
-    return container.children.map((item) => {
-      return this._restoreParentFoItems(item, parent);
-    });
-  }
-
   _roomEmit(event, data) {
     this._io.emit(event, data);
   }

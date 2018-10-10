@@ -10,6 +10,7 @@
 <script>
 import TreeItem from './TreeItem.vue';
 import proxy from "../proxy";
+import  * as transporter from '../../utils/transporter';
 
 export default {
   components: { TreeItem },
@@ -22,7 +23,7 @@ export default {
     this.$nextTick(() => {
       proxy.addListener('client-rootContainer', (data) => {
         const lightTree = JSON.parse(data);
-        const tree = proxy.restoreParentFoItems(lightTree);
+        const tree = transporter.restoreParentFoItems(lightTree);
         this.tree = tree;
       });
     });
