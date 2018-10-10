@@ -1,9 +1,12 @@
+const path = require('path');
 const express = require('express');
 const app = express();
 const server = require('http').createServer(app);
 const io = require('socket.io')(server);
 
-app.use(express.static('statik'));
+console.log(path.join(__dirname, 'statik'));
+app.use(express.static(path.join(__dirname, '../statik')));
+app.listen(3030);
 
 const mixinRoomPrefix = 'mixin-';
 const clientRoomPrefix = 'client-';
@@ -25,4 +28,4 @@ io.on('connection', function (socket) {
 
 server.listen(3000);
 
-console.log("runnded");
+console.log("open host:3030/main.html in your browser");
