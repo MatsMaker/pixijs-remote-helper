@@ -15,8 +15,8 @@ You must have installed node.js then, clone this repo and next:
 
     npm run mixin:dev
 
-Then open http//:localhost:8080/main.html for open client
-and open http//:localhost:3080/mixin.html for open mixin examle
+Then open http://localhost:8080/main.html for open client
+and open http://localhost:3080/mixin.html for open mixin examle
 
 
 # How use
