@@ -74,7 +74,7 @@ if (isDevServer) {
             }),
         ],
         devServer: {
-            port: 3030,
+            port: 3080,
             contentBase: path.join(__dirname, 'example'),
             publicPath: CLIENT_OUTPUT_DIR,
             // noInfo: false
