@@ -5,6 +5,8 @@ Tools for remote inspecting pixijs application
 
 # For development datart
 
+You must have installed node.js then, clone this repo and next:
+
 npm i
 
 npm run server:run
