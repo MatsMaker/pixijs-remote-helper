@@ -7,8 +7,10 @@ Tools for remote inspecting pixijs application
 
 npm i
 
-npm run server:run 
+npm run server:run
+
 npm run client:run
+
 npm run mixin:run
 
 Then open http:localhost:8080/main.html for open client
