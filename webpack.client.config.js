@@ -9,17 +9,15 @@ const { VueLoaderPlugin } = require("vue-loader");
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 
-
-const ENTRY_DIR = '/client_src';
-const OUTPUT_DIR = '/client_build';
-const nodeModules = path.resolve(__dirname, 'node_modules');
-
-
 if (!process.env.NODE_ENV) {
     process.env.NODE_ENV =
         process.argv.indexOf("-p") !== -1 ? "production" : "development";
 }
 const mode = process.env.NODE_ENV;
+
+const ENTRY_DIR = '/client_src';
+const OUTPUT_DIR = (mode === "development") ? '/' : "/statik";
+const nodeModules = path.resolve(__dirname, 'node_modules');
 
 const baseConfig = {
     mode,
