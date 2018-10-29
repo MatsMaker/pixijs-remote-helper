@@ -7,10 +7,10 @@ export default class MixinHelper {
 
   constructor(hostListenre, PIXI) {
     this._host = hostListenre;
-    this._proxyServer = new ProxyServer(hostListenre, 'mixin-');
+    this._proxyServer = new ProxyServer(hostListenre, 'mixin-', 'client-');
     this._proxyPixi = new PixiProxy();
 
-    this._frequency = 300;
+    this._frequency = 150;
     this._propertyListForWatch = ["name", "visible", "x", "y", "texture", "width", "height", "textureCacheIds", "defaultAnchor"]; //TODO fix 'scale' got property
 
     this._run();
@@ -50,14 +50,14 @@ export default class MixinHelper {
   }
 
   onGotRequestForUpdateItem(container) {
-    this._proxyServer.addListener('mixin-updateItem', (params) => {
+    this._proxyServer.addListener('updateItem', (params) => {
       const itemToUpdate = this._proxyPixi.getItemByIndex(params.itemIndex);
       itemToUpdate[params.property] = params.value;
     });
   }
 
   onSelectItem() {
-    this._proxyServer.addListener('mixin-selectItem', (params) => {
+    this._proxyServer.addListener('selectItem', (params) => {
       const selectedItem = this._proxyPixi.getItemByIndex(params.itemIndex);
       const data = this._proxyPixi.prepareContainer(selectedItem, this._propertyListForWatch);
       this._proxyServer.selectItem(data);

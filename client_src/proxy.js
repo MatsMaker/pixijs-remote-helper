@@ -1,10 +1,10 @@
 import ProxyServer from './ProxyServer';
 
 let proxy;
-if (!proxy) {
-  const host = localStorage.getItem("proxyHost") || 'http://localhost:3000';
-  proxy = new ProxyServer(host, 'client-');
-  proxy.connect();
-}
+proxy = true;
+const host = localStorage.getItem("proxyHost") || 'http://localhost:3000';
+console.log('proxy is connecting to:', host);
+proxy = new ProxyServer(host, 'client-', 'mixin-');
+proxy.connect();
 
 export default proxy;

@@ -21,7 +21,7 @@ export default {
   },
   mounted() {
     this.$nextTick(() => {
-      proxy.addListener('client-rootContainer', (data) => {
+      proxy.addListener('rootContainer', (data) => {
         const lightTree = JSON.parse(data);
         const tree = transporter.restoreParentFoItems(lightTree);
         this.tree = tree;

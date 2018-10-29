@@ -3,23 +3,24 @@ import AbstractProxyServer from '../utils/AbstractProxyServer';
 
 export default class ProxyServer extends AbstractProxyServer {
 
-  constructor(host, room) {
-    super(host, room);
+  constructor(host, emitPrefix, listenPrefix) {
+    super(host, emitPrefix, listenPrefix);
   }
 
   getRootContainer() {
     const preparedData = this._prepareContainer(data, properties);
-    this._roomEmit(this._room + 'getRootContainer', preparedData);
+    this._roomEmit('getRootContainer', preparedData);
   }
 
   selectItem(itemIndex) {
-    this._itemEmit(this._room + 'selectItem', {
+    console.log('onSelectItem');
+    this._itemEmit('selectItem', {
       itemIndex,
     });
   }
 
   updateItem(itemIndex, property, value) {
-    this._itemEmit(this._room + 'updateItem', {
+    this._itemEmit('updateItem', {
       itemIndex,
       property,
       value

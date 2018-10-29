@@ -16,22 +16,23 @@ io.on('connection', function (socket) {
   console.log('join new user');
 
   socket.on(mixinRoomPrefix + 'rootContainer', (data) => {
-    socket.broadcast.emit(clientRoomPrefix + 'rootContainer', data);
+    console.log(mixinRoomPrefix + 'rootContainer');
+    socket.broadcast.emit(mixinRoomPrefix + 'rootContainer', data);
   });
 
   socket.on(clientRoomPrefix + 'updateItem', (data) => {
-    console.log('updateItem', data);
-    socket.broadcast.emit(mixinRoomPrefix + 'updateItem', data);
+    console.log(clientRoomPrefix + 'updateItem');
+    socket.broadcast.emit(clientRoomPrefix + 'updateItem', data);
   });
 
   socket.on(clientRoomPrefix + 'selectItem', (data) => {
-    console.log(clientRoomPrefix + 'selectItem', data);
-    socket.broadcast.emit(mixinRoomPrefix + 'selectItem', data);
+    console.log(clientRoomPrefix + 'selectItem');
+    socket.broadcast.emit(clientRoomPrefix + 'selectItem', data);
   });
 
   socket.on(mixinRoomPrefix + 'selectItem', (data) => {
-    console.log(mixinRoomPrefix + 'selectItem', data);
-    socket.broadcast.emit(clientRoomPrefix + 'selectItem', data);
+    console.log(mixinRoomPrefix + 'selectItem');
+    socket.broadcast.emit(mixinRoomPrefix + 'selectItem', data);
   });
 
 });

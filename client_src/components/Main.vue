@@ -6,21 +6,21 @@
 </template>
 
 <script>
-  import TreeView from './TreeView.vue';
-  import DetailView from './DetailView.vue';
+import TreeView from "./TreeView.vue";
+import DetailView from "./DetailView.vue";
 
-  export default {
-    components: { TreeView, DetailView },
-  }
+export default {
+  components: { TreeView, DetailView },
+};
 </script>
 
 <style lang="scss">
-  .row {
-    display: flex;
-  }
+.row {
+  display: flex;
+}
 
-  .treeview,
-  .detailview {
-    flex: 50%;
-  }
+.treeview,
+.detailview {
+  flex: 50%;
+}
 </style>
