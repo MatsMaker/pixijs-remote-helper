@@ -1,6 +1,7 @@
 <template>
   <div>
-    Detail: {{ this.tree.name }}
+    <div>Detail: {{ tree.name }}</div>
+    <div>{{ tree }}</div>
   </div>
 </template>
 <script>
@@ -17,8 +18,9 @@ export default {
     this.$nextTick(() => {
       proxy.addListener("selectItem", data => {
         const lightTree = JSON.parse(data);
-        const tree = transporter.restoreParentFoItems(lightTree);
-        this.tree = tree;
+        // const tree = transporter.restoreParentFoItems(lightTree);
+        console.log('selectItem: ', lightTree);
+        this.tree = lightTree;
       });
     });
   }
