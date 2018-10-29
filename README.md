@@ -19,6 +19,9 @@ Then open http://localhost:8080/main.html for open client
 and open http://localhost:3080/mixin.html for open mixin examle
 
 
+![alt tag](previews.png)
+
+
 # How use
 
 First time need do:
