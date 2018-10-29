@@ -11,7 +11,7 @@ export default class MixinHelper {
     this._proxyPixi = new PixiProxy();
 
     this._frequency = 300;
-    this._propertyListForWatch = ["name", "visible"];
+    this._propertyListForWatch = ["name", "visible", "x", "y", "texture", "width", "height", "textureCacheIds", "defaultAnchor"]; //TODO fix 'scale' got property
 
     this._run();
   }
@@ -32,6 +32,11 @@ export default class MixinHelper {
       this._frequency
     );
 
+    this._pixiInjector.registerBeforeRenderHook(
+      this.onSelectItem.bind(this),
+      this._frequency
+    );
+
     this._pixiInjector.registerAfterRenderHook(
       this.sendRootContainer.bind(this),
       this._frequency
@@ -46,9 +51,17 @@ export default class MixinHelper {
 
   onGotRequestForUpdateItem(container) {
     this._proxyServer.addListener('mixin-updateItem', (params) => {
-      const itemToUpdate = this._proxyPixi.getItemByIndex(params.path);
+      const itemToUpdate = this._proxyPixi.getItemByIndex(params.itemIndex);
       itemToUpdate[params.property] = params.value;
     });
   }
+
+  onSelectItem() {
+    this._proxyServer.addListener('mixin-selectItem', (params) => {
+      const selectedItem = this._proxyPixi.getItemByIndex(params.itemIndex);
+      const data = this._proxyPixi.prepareContainer(selectedItem, this._propertyListForWatch);
+      this._proxyServer.selectItem(data);
+    });
+  } 
 
 }

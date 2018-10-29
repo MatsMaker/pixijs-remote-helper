@@ -23,7 +23,7 @@ export default class AbstractProxyServer {
     this._io.on(name, fn);
   }
 
-  _roomEmit(event, data) {
+  _itemEmit(event, data) {
     this._io.emit(event, data);
   }
 

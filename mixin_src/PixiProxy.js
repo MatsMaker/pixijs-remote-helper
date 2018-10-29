@@ -1,3 +1,5 @@
+import { isNull } from "util";
+
 export default class PixiProxy {
 
   constructor() {
@@ -25,18 +27,27 @@ export default class PixiProxy {
     return JSON.stringify(lightweight);
   }
 
-  _onlyProperty(properties, container, lightweight = null) {
+  _onlyProperty(properties, container, lightweight = null, skip = false) {
     if (lightweight === null) {
       lightweight = {}
     }
-    lightweight.__index = this.addItem(container);
+    if (!skip) {
+      lightweight.__index = this.addItem(container);
+    }
     properties.map(name => {
-      lightweight[name] = container[name];
+      if (name in container) {
+        if (typeof container[name] === 'object' && !isNull(container[name]) && !Array.isArray(container[name]) ) {
+          lightweight[name] = this._onlyProperty(properties, container[name], null, true);
+        } else {
+          lightweight[name] = container[name];
+        }
+      } 
     });
-
-    lightweight.children = container.children.map(chaild =>
-      this._onlyProperty(properties, chaild)
-    );
+    if (Array.isArray(container.children)) {
+      lightweight.children = container.children.map(chaild =>
+        this._onlyProperty(properties, chaild)
+      );
+    }
     return lightweight;
   }
 

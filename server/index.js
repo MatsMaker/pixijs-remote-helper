@@ -24,6 +24,16 @@ io.on('connection', function (socket) {
     socket.broadcast.emit(mixinRoomPrefix + 'updateItem', data);
   });
 
+  socket.on(clientRoomPrefix + 'selectItem', (data) => {
+    console.log(clientRoomPrefix + 'selectItem', data);
+    socket.broadcast.emit(mixinRoomPrefix + 'selectItem', data);
+  });
+
+  socket.on(mixinRoomPrefix + 'selectItem', (data) => {
+    console.log(mixinRoomPrefix + 'selectItem', data);
+    socket.broadcast.emit(clientRoomPrefix + 'selectItem', data);
+  });
+
 });
 
 server.listen(3000);

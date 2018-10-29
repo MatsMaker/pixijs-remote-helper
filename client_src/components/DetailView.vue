@@ -1,19 +1,13 @@
 <template>
   <div>
-      <TreeItem
-        :model="tree"
-        :deep="0">
-      </TreeItem>
+    Detail: {{ this.tree.name }}
   </div>
 </template>
-
 <script>
-import TreeItem from './TreeItem.vue';
 import proxy from "../proxy";
 import  * as transporter from '../../utils/transporter';
 
 export default {
-  components: { TreeItem },
   data() {
     return {
       tree: { children: [], name: "" }
@@ -21,7 +15,7 @@ export default {
   },
   mounted() {
     this.$nextTick(() => {
-      proxy.addListener('client-rootContainer', (data) => {
+      proxy.addListener("client-selectItem", data => {
         const lightTree = JSON.parse(data);
         const tree = transporter.restoreParentFoItems(lightTree);
         this.tree = tree;
@@ -31,5 +25,4 @@ export default {
 };
 </script>
 <style lang="scss">
-  
 </style>

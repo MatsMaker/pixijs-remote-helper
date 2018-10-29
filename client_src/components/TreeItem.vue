@@ -1,9 +1,9 @@
 <template>
   <div 
-    class="tree-item"
-    @click="onClick">
+    class="tree-item">
     <div>
-      <span>{{ model.name }}</span>
+      <span @click="onCollapse">[+/-]</span>
+      <span @click="onSelectItem" class="name">{{ model.name }}</span>
       <span @click="onHide">{visible: {{ this.model.visible }}}</span>
     </div>
     <div v-for="(item, index) in model.children"
@@ -19,7 +19,7 @@
 <script>
 import TreeItem from "./TreeItem.vue";
 import proxy from "../proxy";
-import * as transporter from '../../utils/transporter';
+import * as transporter from "../../utils/transporter";
 
 export default {
   name: "TreeItem",
@@ -31,20 +31,31 @@ export default {
     };
   },
   methods: {
-    onClick(e) {
+    onCollapse(e) {
       e.stopPropagation();
       this.isCollapse = !this.isCollapse;
     },
     onHide(e) {
       e.stopPropagation();
-      // const patch = transporter.createPathToItem(this.model);
-      proxy.updateItem(this.model.__index, 'visible', !this.model.visible);
+      proxy.updateItem(this.model.__index, "visible", !this.model.visible);
+    },
+    onSelectItem(e) {
+      e.stopPropagation();
+      proxy.selectItem(this.model.__index);
     }
   }
 };
 </script>
 
 <style lang="scss">
+.name {
+  display: inline-block;
+  min-width: 15px;
+  min-height: 1em;
+  background-color: brown;
+  color: azure;
+  padding: 3px;
+}
 .tree-item {
   margin-left: 5px;
   cursor: pointer;
