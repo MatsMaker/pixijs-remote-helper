@@ -24,24 +24,26 @@ and open http://localhost:3080/mixin.html for open mixin examle
 
 # How use
 
-First time need do:
+**First time need do:**
 
-    Clone this repository
+1. Clone this repository
+```
+$cd ./pixijs-remote-helper
+$npm run build
+$npm i -g ../pixijs-remote-helper
+```
 
-    $cd ./pixijs-remote-helper
+2. Add mixin(./mixin build/main.bundle.js) script to pixijs app page where need debugging
 
-    $npm run build
+3. Run app from terminal 
+```
+$pixihelper
+```
 
-    $npm i -g ../pixijs-remote-helper
+4. Then open client page on http://localhost:3030/main.html for debuggin
 
-    Add mixin(./mixin build/main.bundle.js) script to pixijs app page where need debugging
-
-    Run app from terminal $pixihelper
-
-    Then open client page on http://localhost:3030/main.html for debuggin
-
-For example: you can to run mixin example client use
-
-    $npm run mixin:dev
-
-    Then open http://localhost:3080/mixin.html page with pixijs app
+**For example: you can to run mixin example client use**
+```
+$npm run mixin:dev
+```
+Then open http://localhost:3080/mixin.html page with pixijs app
