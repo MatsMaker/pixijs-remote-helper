@@ -26,8 +26,11 @@ export default {
   },
   methods: {
     onSelectItem(data) {
-        const lightTree = JSON.parse(data);
-        this.tree = lightTree;
+      const lightTree = JSON.parse(data);
+      this.tree = lightTree;
+    },
+    onUpdateItem(data) {
+      console.log(data, ...arguments);
     }
   }
 };

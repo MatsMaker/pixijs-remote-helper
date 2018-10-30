@@ -21,7 +21,7 @@ export default class AbstractProxyServer {
   }
 
   _addListener(name, fn) {
-    if (this._listeners.indexOf(name) > -1) {
+    if (this._listeners.indexOf(name) > -1) { //TODO need to fix it I did not find why calls of listeners is increasing
       // console.log('this listener exists: ', name);
     } else {
       this._io.on(name, fn);

@@ -1,6 +1,6 @@
 <template>
   <div class="propertyField">
-    <span class="properyName">{{ name }}</span>:{{data}}
+    <span class="properyName">{{ name }}</span>:
     <input class="input-field"
       v-model="newValue"
       :type="'text'"
@@ -21,7 +21,7 @@ export default {
   watch: {
     data(val, oldVal) {
       if (val !== oldVal) {
-        this.data = val;
+        this.newValue = val;
       }
     }  
   },

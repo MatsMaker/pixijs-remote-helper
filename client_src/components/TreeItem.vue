@@ -3,7 +3,10 @@
     class="tree-item">
     <div class="title">
       <TreeviewToggle :complex="model.children.length > 0" v-on:requestClose="onCollapse" :collapse="isCollapse"></TreeviewToggle>
-      <div @click="onSelectItem" class="name">{{ model.name }}</div>
+      <div class="name"
+        @click="onSelectItem">
+        {{ model.name }}
+      </div>
       <span @click="onHide">{visible: {{ this.model.visible }}}</span>
     </div>
     <div v-for="(item, index) in model.children"

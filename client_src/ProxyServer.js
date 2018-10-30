@@ -13,7 +13,7 @@ export default class ProxyServer extends AbstractProxyServer {
   }
 
   selectItem(itemIndex) {
-    console.log('onSelectItem');
+    console.log('onSelectItem:', itemIndex);
     this._itemEmit('selectItem', {
       itemIndex,
     });
