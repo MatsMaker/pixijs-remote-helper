@@ -1,18 +1,18 @@
 <template>
-  <div>
-    <div v-for="(propertyValue, key, index) in tree"
-      :key="index">
-      <PropertyEdit :properyName="key" :properyData="propertyValue" :object="tree.__index"></PropertyEdit>
-    </div>
+  <div class="detail-view">
+      <PropertyTree
+        v-for="(propertyValue, key, index) in tree" :key="index"
+        :properyName="key" :properyData="propertyValue" :itemIndex="tree.__index">
+      </PropertyTree>
   </div>
 </template>
 <script>
 import proxy from "../proxy";
 import * as transporter from "../../utils/transporter";
-import PropertyEdit from "./PropertyEdit.vue";
+import PropertyTree from "./PropertyTree.vue";
 
 export default {
-  components: { PropertyEdit },
+  components: { PropertyTree },
   data() {
     return {
       tree: {},
@@ -21,12 +21,14 @@ export default {
   },
   mounted() {
     this.$nextTick(() => {
-      proxy.addListener("selectItem", data => {
-        const lightTree = JSON.parse(data);
-        console.log("selectItem: ", lightTree);
-        this.tree = lightTree;
-      });
+      proxy.addListener("selectItem", this.onSelectItem);
     });
+  },
+  methods: {
+    onSelectItem(data) {
+        const lightTree = JSON.parse(data);
+        this.tree = lightTree;
+    }
   }
 };
 </script>

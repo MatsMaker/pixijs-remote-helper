@@ -28,7 +28,7 @@ export default {
   props: ["model", "deep"],
   data() {
     return {
-      isCollapse: false
+      isCollapse: false,
     };
   },
   methods: {
@@ -59,10 +59,10 @@ export default {
   padding: 4px;
   font-size: 12px;
   font-family: sans-serif;
+  cursor: pointer;
 }
 .tree-item {
   margin-left: 5px;
-  cursor: pointer;
 }
 .tree-item .collapse {
   display: none;

@@ -8,9 +8,9 @@
 </template>
 
 <script>
-import TreeItem from './TreeItem.vue';
+import TreeItem from "./TreeItem.vue";
 import proxy from "../proxy";
-import  * as transporter from '../../utils/transporter';
+import * as transporter from "../../utils/transporter";
 
 export default {
   components: { TreeItem },
@@ -21,15 +21,17 @@ export default {
   },
   mounted() {
     this.$nextTick(() => {
-      proxy.addListener('rootContainer', (data) => {
-        const lightTree = JSON.parse(data);
-        const tree = transporter.restoreParentFoItems(lightTree);
-        this.tree = tree;
-      });
+      proxy.addListener("rootContainer", this.onRootContainer);
     });
+  },
+  methods: {
+    onRootContainer(data) {
+      const lightTree = JSON.parse(data);
+      const tree = transporter.restoreParentFoItems(lightTree);
+      this.tree = tree;
+    }
   }
 };
 </script>
 <style lang="scss">
-  
 </style>

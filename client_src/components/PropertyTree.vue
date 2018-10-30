@@ -1,8 +1,6 @@
 <template>
-  <div v-if="!skip">
-    <div v-if="!isComplex">
-      <span class="properyName">{{ properyName }}</span> : {{ properyData }}
-    </div>
+  <div class="property-tree" v-if="!skip">
+    <PropertyField v-if="!isComplex" :name="properyName" :data="properyData" :itemIndex="mainObject"></PropertyField>
     <div v-if="isComplex">
       <div class="row">
         <TreeviewToggle :complex="isComplex" v-on:requestClose="onCollapse" :collapse="isCollapse"></TreeviewToggle>
@@ -11,18 +9,23 @@
       <div class="propertyes" :class="{collapse: isCollapse }">
         <div v-for="(propertyValue, key, index) in properyData"
           :key="index">
-          <PropertyEdit class="deep" :properyName="key" :properyData="propertyValue" :itemIndex="properyData.___item"></PropertyEdit>
+          <PropertyTree class="deep"
+            :properyName="key"
+            :properyData="propertyValue"
+            :itemIndex="mainObject">
+          </PropertyTree>
         </div>
       </div>
     </div>
   </div>
 </template>
 <script>
-import PropertyEdit from "./PropertyEdit.vue";
+import PropertyTree from "./PropertyTree.vue";
+import PropertyField from "./PropertyField.vue";
 import TreeviewToggle from "./TreeviewToggle.vue";
 
 export default {
-  name: "PropertyEdit",
+  name: "PropertyTree",
   props: ["properyName", "properyData", "itemIndex"],
   data() {
     return {
@@ -35,8 +38,11 @@ export default {
       this.isCollapse = !this.isCollapse;
     }
   },
-  components: { PropertyEdit, TreeviewToggle },
+  components: { PropertyTree, TreeviewToggle, PropertyField },
   computed: {
+    mainObject() {
+      return this.itemIndex;
+    },
     skip() {
       return this.skipArray.indexOf(this.properyName) > -1;
     },
