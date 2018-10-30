@@ -26,19 +26,22 @@ and open http://localhost:3080/mixin.html for open mixin examle
 
 First time need do:
 
-    Build you mixin.js client:
+    Clone this repository
 
-    npm run mixin:prod
+    $cd ./pixijs-remote-helper
 
-    Build client:
+    $npm run build
 
-    npm run client:prod
+    $npm i -g ../pixijs-remote-helper
 
-    Run server
+    Add mixin(./mixin build/main.bundle.js) script to pixijs app page where need debugging
 
-    npm run server:dev
+    Run app from terminal $pixihelper
 
-    Need connect mixin.js(from mixin_build folder)  app to your pixijs page. Then run sever side
-    Then open client page on http://localhost:3030/main.html and use
+    Then open client page on http://localhost:3030/main.html for debuggin
 
-For all other time need inject mixin to site and run only server and open client page
+For example: you can to run mixin example client use
+
+    $npm run mixin:dev
+
+    Then open http://localhost:3080/mixin.html page with pixijs app

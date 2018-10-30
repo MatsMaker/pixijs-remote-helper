@@ -1,7 +1,10 @@
 {
   "name": "pixijs-remote-helper",
-  "version": "0.0.1",
+  "version": "0.1.0",
   "description": "",
+  "bin": {
+    "pixihelper": "./bin/pixihelper"
+  },
   "scripts": {
     "preinstall": "npm i -g http-server nodemon",
     "babel": "babel --presets es2015 js/main.js",
@@ -10,7 +13,7 @@
     "client:prod": "webpack --mode production -p --progress --config webpack.client.config.js",
     "mixin:dev": "webpack-dev-server --mode development --config webpack.mixin.config.js",
     "mixin:prod": "webpack --mode production -p --progress --config webpack.mixin.config.js",
-    "dev": "npm run client:dev",
+    "build": "npm run client:prod && npm run mixin:prod",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",

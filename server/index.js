@@ -13,7 +13,7 @@ const clientRoomPrefix = 'client-';
 
 io.on('connection', function (socket) {
 
-  console.log('join new user');
+  console.log('new connection');
 
   socket.on(mixinRoomPrefix + 'rootContainer', (data) => {
     console.log(mixinRoomPrefix + 'rootContainer');
