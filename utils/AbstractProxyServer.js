@@ -22,11 +22,11 @@ export default class AbstractProxyServer {
 
   _addListener(name, fn) {
     if (this._listeners.indexOf(name) > -1) {
-      console.log('this listener exists: ', name);
+      // console.log('this listener exists: ', name);
     } else {
       this._io.on(name, fn);
       this._listeners.push(name);
-      console.log('addListener: ', name);
+      // console.log('addListener: ', name);
     }
   }
 
@@ -35,7 +35,7 @@ export default class AbstractProxyServer {
   }
 
   _itemEmit(event, data) {
-    console.log(this._emitPrefix + event, data);
+    // console.log(this._emitPrefix + event, data);
     this._io.emit(this._emitPrefix + event, data);
   }
 

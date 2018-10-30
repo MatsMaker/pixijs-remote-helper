@@ -15,7 +15,8 @@ export default {
   components: { PropertyEdit },
   data() {
     return {
-      tree: {}
+      tree: {},
+      isCollapse: false
     };
   },
   mounted() {
