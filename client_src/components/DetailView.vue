@@ -1,8 +1,5 @@
 <template>
   <div>
-
-    <div>Detail: {{ tree.name }}</div>
-    
     <div v-for="(propertyValue, key, index) in tree"
       :key="index">
       <PropertyEdit :properyName="key" :properyData="propertyValue" :object="tree.__index"></PropertyEdit>
@@ -18,7 +15,7 @@ export default {
   components: { PropertyEdit },
   data() {
     return {
-      tree: { children: [], name: "" }
+      tree: {}
     };
   },
   mounted() {

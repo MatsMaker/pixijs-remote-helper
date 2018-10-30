@@ -17,10 +17,14 @@ export default {
 <style lang="scss">
 .row {
   display: flex;
+  height: 100%;
 }
 
 .treeview,
 .detailview {
   flex: 50%;
+  height: calc(100% - 15px * 2);
+  overflow-y: auto;
+  padding: 15px;
 }
 </style>

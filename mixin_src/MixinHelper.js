@@ -11,7 +11,7 @@ export default class MixinHelper {
     this._proxyPixi = new PixiProxy();
 
     this._frequency = 150;
-    this._propertyListForWatch = ["name", "visible", "x", "y", "texture", "width", "height", "textureCacheIds", "defaultAnchor"]; //TODO fix 'scale' got property
+    this._propertyListForWatch = ["name", "visible", "x", "y", "texture", "width", "height", "textureCacheIds", "defaultAnchor", "scale", "position", "rotation"]; //TODO fix 'scale' got property
 
     this._run();
   }

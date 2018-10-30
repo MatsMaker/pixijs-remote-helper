@@ -1,9 +1,15 @@
 <template>
   <div 
     class="tree-item">
-    <div>
-      <span @click="onCollapse">[+/-]</span>
-      <span @click="onSelectItem" class="name">{{ model.name }}</span>
+    <div class="title">
+      <div class="treeview__toggle">
+        <span
+          @click="onCollapse"
+          v-if="model.children.length > 0"
+          v-bind:class="[!isCollapse ? 'treeview__toggle__collapse' : 'treeview__toggle__expand']">
+        </span>
+      </div>
+      <div @click="onSelectItem" class="name">{{ model.name }}</div>
       <span @click="onHide">{visible: {{ this.model.visible }}}</span>
     </div>
     <div v-for="(item, index) in model.children"
@@ -52,9 +58,13 @@ export default {
   display: inline-block;
   min-width: 15px;
   min-height: 1em;
-  background-color: brown;
+  background-color: cadetblue;
+  border-radius: 4px;
+  border: 1px darkcyan solid;
   color: azure;
-  padding: 3px;
+  padding: 4px;
+  font-size: 12px;
+  font-family: sans-serif;
 }
 .tree-item {
   margin-left: 5px;
@@ -62,6 +72,31 @@ export default {
 }
 .tree-item .collapse {
   display: none;
+}
+.title {
+  display: flex;
+}
+
+.treeview__toggle__collapse {
+  border: 4px solid transparent;
+  border-top-color: #6e6e6e;
+  border-top-width: 6px;
+  position: absolute;
+  top: 3px;
+  left: 2px;
+}
+.treeview__toggle__expand {
+  border: 4px solid transparent;
+  border-left-color: #6e6e6e;
+  border-left-width: 6px;
+  position: absolute;
+  top: 2px;
+  left: 4px;
+}
+.treeview__toggle {
+  position: relative;
+  width: 16px;
+  height: 16px;
 }
 </style>
 
