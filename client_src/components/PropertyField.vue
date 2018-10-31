@@ -10,6 +10,7 @@
 </template>
 <script>
 import proxy from "../proxy";
+import { getValueType } from "../../utils/transporter";
 
 export default {
   props: ["name", "data", "itemIndex"],
@@ -17,6 +18,11 @@ export default {
     return {
       newValue: this.data
     };
+  },
+  computed: {
+    valueType() {
+      return getValueType(this.data);
+    }
   },
   watch: {
     data(val, oldVal) {

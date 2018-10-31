@@ -23,6 +23,7 @@
 import PropertyTree from "./PropertyTree.vue";
 import PropertyField from "./PropertyField.vue";
 import TreeviewToggle from "./TreeviewToggle.vue";
+import { isNull } from "util";
 
 export default {
   name: "PropertyTree",
@@ -47,7 +48,7 @@ export default {
       return this.skipArray.indexOf(this.properyName) > -1;
     },
     isComplex() {
-      return typeof this.properyData === "object";
+      return (!isNull(this.properyData) && typeof this.properyData === "object") || Array.isArray(this.properyData);
     }
   }
 };

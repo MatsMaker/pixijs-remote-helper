@@ -1,6 +1,7 @@
 import ProxyServer from './ProxyServer';
 import PixiProxy from './PixiProxy';
 import PixiInjector from './PixiInjector';
+import { parseValueFromString } from '../utils/transporter';
 
 
 export default class MixinHelper {
@@ -51,8 +52,9 @@ export default class MixinHelper {
 
   onGotRequestForUpdateItem(container) {
     this._proxyServer.addListener('updateItem', (params) => {
+      const value = parseValueFromString(params.value);
       const itemToUpdate = this._proxyPixi.getItemByIndex(params.itemIndex);
-      itemToUpdate[params.property] = params.value;
+      itemToUpdate[params.property] = value;
     });
   }
 
