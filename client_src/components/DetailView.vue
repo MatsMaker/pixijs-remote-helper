@@ -1,9 +1,12 @@
 <template>
   <div class="detail-view">
-      <PropertyTree
-        v-for="(propertyValue, key, index) in tree" :key="index"
-        :properyName="key" :properyData="propertyValue" :itemIndex="tree.__index">
-      </PropertyTree>
+    <PropertyTree
+      v-for="(propertyValue, key, index) in tree"
+      :key="index"
+      :properyName="key"
+      :properyData="propertyValue"
+      :itemIndex="tree.__index"
+    ></PropertyTree>
   </div>
 </template>
 <script>
@@ -22,6 +25,14 @@ export default {
   mounted() {
     this.$nextTick(() => {
       proxy.addListener("selectItem", this.onSelectItem);
+      proxy.addListener("updateItem", this.onUpdateItem);
+    });
+  },
+  updated: function() {
+    this.$nextTick(function() {
+      if (!proxy.cache.freeze) {
+        proxy.selectItem(proxy.cache.activeItem);
+      }
     });
   },
   methods: {
@@ -30,7 +41,7 @@ export default {
       this.tree = lightTree;
     },
     onUpdateItem(data) {
-      console.log(data, ...arguments);
+      proxy.selectItem(proxy.cache.activeItem);
     }
   }
 };
