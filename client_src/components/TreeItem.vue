@@ -1,13 +1,14 @@
 <template>
   <div 
-    class="tree-item">
+    class="tree-item"
+    v-bind:class="{invisible: !this.model.visible}">
     <div class="title">
       <TreeviewToggle :complex="model.children.length > 0" v-on:requestClose="onCollapse" :collapse="isCollapse"></TreeviewToggle>
       <div class="name"
         @click="onSelectItem">
         {{ model.name }}
       </div>
-      <span @click="onHide">{visible: {{ this.model.visible }}}</span>
+      <span class="interactive-item" @click="onHide">{visible: {{ this.model.visible }}}</span>
     </div>
     <div v-for="(item, index) in model.children"
       :class="{collapse: isCollapse }"
@@ -65,6 +66,9 @@ export default {
   font-family: sans-serif;
   cursor: pointer;
 }
+.tree-item.invisible .name {
+  background-color: gray;
+}
 .tree-item {
   margin-left: 5px;
 }
@@ -73,6 +77,9 @@ export default {
 }
 .title {
   display: flex;
+}
+.interactive-item {
+  cursor: pointer;
 }
 </style>
 
