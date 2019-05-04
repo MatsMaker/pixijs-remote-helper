@@ -1,30 +1,35 @@
 <template>
-  <div class="row">
-    <TreeView class="treeview" ></TreeView>
-    <DetailView class="detailview"></DetailView>
+  <div class="main">
+    <Search class="searchview"></Search>
+    <div class="row">
+      <TreeView class="treeview"></TreeView>
+      <DetailView class="detailview"></DetailView>
+    </div>
   </div>
 </template>
 
 <script>
+import Search from "./Search.vue";
 import TreeView from "./TreeView.vue";
 import DetailView from "./DetailView.vue";
 
 export default {
-  components: { TreeView, DetailView },
+  components: { TreeView, DetailView, Search }
 };
 </script>
 
 <style lang="scss">
-.row {
-  display: flex;
-  height: 100%;
+.main {
+  flex-direction: column;
 }
-
+.searchview {
+  padding: 15px 25px;
+  background-color: gainsboro;
+}
 .treeview,
 .detailview {
-  flex: 50%;
-  height: calc(100% - 15px * 2);
   overflow-y: auto;
   padding: 15px;
+  width: 50%;
 }
 </style>
