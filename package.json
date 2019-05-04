@@ -27,7 +27,7 @@
     "friendly-errors-webpack-plugin": "^1.7.0",
     "html-loader": "^0.5.5",
     "html-webpack-plugin": "^3.2.0",
-    "node-sass": "^4.9.3",
+    "node-sass": "^4.12.0",
     "rxjs": "^6.3.3",
     "sass-loader": "^7.1.0",
     "style-loader": "^0.23.1",
@@ -36,11 +36,11 @@
     "vue-template-compiler": "^2.5.17",
     "webpack": "^4.20.2",
     "webpack-cli": "^3.1.2",
-    "webpack-dev-server": "^3.1.9",
+    "webpack-dev-server": "^3.3.1",
     "webpack-merge": "^4.1.4"
   },
   "dependencies": {
-    "express": "^4.16.3",
+    "express": "^4.16.4",
     "pixi.js": "^4.8.2",
     "socket.io": "^2.1.1",
     "socket.io-emitter": "^3.1.1",

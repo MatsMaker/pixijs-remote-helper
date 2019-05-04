@@ -44,7 +44,8 @@ export default {
     },
     onSelectItem(e) {
       e.stopPropagation();
-      proxy.selectItem(this.model.__index);
+      proxy.cache.activeItem = this.model.__index;
+      proxy.selectItem(proxy.cache.activeItem);
     }
   }
 };
