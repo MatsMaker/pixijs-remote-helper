@@ -1,6 +1,6 @@
 <template>
   <div class="main">
-    <Search class="searchview"></Search>
+    <!-- <Search class="searchview"></Search> -->
     <div class="row">
       <TreeView class="treeview"></TreeView>
       <DetailView class="detailview"></DetailView>

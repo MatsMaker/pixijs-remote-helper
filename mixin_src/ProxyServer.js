@@ -11,6 +11,10 @@ export default class ProxyServer extends AbstractProxyServer {
     this._itemEmit('rootContainer', data);
   }
 
+  updateItem(data) {
+    this._itemEmit('updateItem', data);
+  }
+
   selectItem(data) {
     this._itemEmit('selectItem', data);
   }

@@ -4,6 +4,7 @@
     <input class="input-field"
       v-model="newValue"
       :type="'text'"
+      @focus="onFocus"
       @blur="restoreValue"
       v-on:keyup.enter="setValue"/>
   </div>
@@ -34,9 +35,15 @@ export default {
   methods: {
     setValue(e) {
       proxy.updateItem(this.itemIndex, this.name, this.newValue);
+      proxy.cache.freeze = false;
+    },
+    onFocus() {
+      proxy.cache.freeze = true;
     },
     restoreValue() {
       this.newValue = this.data;
+      proxy.cache.freeze = false;
+      proxy.selectItem(proxy.cache.activeItem);
     }
   }
 };

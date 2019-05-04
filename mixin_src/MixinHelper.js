@@ -55,6 +55,7 @@ export default class MixinHelper {
       const value = parseValueFromString(params.value);
       const itemToUpdate = this._proxyPixi.getItemByIndex(params.itemIndex);
       itemToUpdate[params.property] = value;
+      this._proxyServer.updateItem(params);
     });
   }
 

@@ -19,27 +19,29 @@ export default {
   data() {
     return {
       tree: {},
-      isCollapse: false,
-      freeze: false
+      isCollapse: false
     };
   },
   mounted() {
     this.$nextTick(() => {
       proxy.addListener("selectItem", this.onSelectItem);
+      proxy.addListener("updateItem", this.onUpdateItem);
     });
   },
   updated: function() {
     this.$nextTick(function() {
-      proxy.selectItem(proxy.cache.activeItem);
+      if (!proxy.cache.freeze) {
+        proxy.selectItem(proxy.cache.activeItem);
+      }
     });
   },
   methods: {
-    mouseover(e) {
-      console.log("mouseover");
-    },
     onSelectItem(data) {
       const lightTree = JSON.parse(data);
       this.tree = lightTree;
+    },
+    onUpdateItem(data) {
+      proxy.selectItem(proxy.cache.activeItem);
     }
   }
 };
