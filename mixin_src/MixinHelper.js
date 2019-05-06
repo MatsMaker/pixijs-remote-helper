@@ -6,18 +6,26 @@ import { parseValueFromString } from '../utils/transporter';
 
 export default class MixinHelper {
 
-  constructor(hostListenre, PIXI) {
+  constructor(hostListenre) {
     this._host = hostListenre;
     this._proxyServer = new ProxyServer(hostListenre, 'mixin-', 'client-');
     this._proxyPixi = new PixiProxy();
 
     this._frequency = 150;
     this._propertyListForWatch = ["name", "visible", "x", "y", "texture", "width", "height", "textureCacheIds", "defaultAnchor", "scale", "position", "rotation"]; //TODO fix 'scale' got property
-
-    this._run();
   }
 
-  _run() {
+  autoStart() {
+    this.autoStart = () => { }
+    let initer = setInterval(() => {
+      if (PIXI) {
+        this.run();
+        clearInterval(initer);
+      }
+    }, 300);
+  }
+
+  run() {
     this._proxyServer.connect();
 
     this._pixiInjector = new PixiInjector(window.PIXI);
