@@ -4,9 +4,14 @@ const app = express();
 const server = require('http').createServer(app);
 const io = require('socket.io')(server);
 
+
+const PORT = process.env.SOCKET_PORT || 3000;
+const SOCKET_PORT = process.env.SOCKET_PORT || 3010;
+
+
 console.log(path.join(__dirname, 'statik'));
 app.use(express.static(path.join(__dirname, '../statik')));
-app.listen(3030);
+app.listen(PORT);
 
 const mixinRoomPrefix = 'mixin-';
 const clientRoomPrefix = 'client-';
@@ -37,6 +42,7 @@ io.on('connection', function (socket) {
 
 });
 
-server.listen(3000);
+server.listen(SOCKET_PORT);
 
-console.log("open host:3030/main.html in your browser");
+console.log(`open host:${PORT}/main.html in your browser`);
+console.log(`socket port:${SOCKET_PORT}`);

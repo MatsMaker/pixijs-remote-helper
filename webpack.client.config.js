@@ -111,7 +111,7 @@ if (isDevServer) {
             }),
         ],
         devServer: {
-            port: 8080,
+            port: process.env.PORT || 8080,
             contentBase: path.join(__dirname, 'example'),
             publicPath: OUTPUT_DIR,
             // noInfo: false

@@ -1,11 +1,5 @@
 import MixinHelper from "./MixinHelper";
 
-const host = localStorage.getItem("proxyHost") || 'http://localhost:3000';
+const host = window.PIXI_HELPER_PROXY_HOST || localStorage.getItem("pixiHelperProxyHost") || 'http://localhost:3010';
 
-
-let initer = setInterval(() => {
-  if (PIXI) {
-    new MixinHelper(host, PIXI);
-    clearInterval(initer);
-  }
-}, 300);
+new MixinHelper(host).autoStart();
