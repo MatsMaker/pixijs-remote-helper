@@ -5,6 +5,7 @@
     <div class="title">
       <TreeviewToggle :complex="model.children.length > 0" v-on:requestClose="onCollapse" :collapse="isCollapse"></TreeviewToggle>
       <div class="name"
+        v-bind:class="{active: isActive()}"
         @click="onSelectItem">
         {{ model.name }}
       </div>
@@ -69,7 +70,7 @@ export default {
   font-family: sans-serif;
   cursor: pointer;
 }
-.tree-item.active .name {
+.tree-item.active .name.active {
   background-color: green;
 }
 .tree-item.invisible .name {
