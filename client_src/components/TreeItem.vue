@@ -1,7 +1,7 @@
 <template>
   <div 
     class="tree-item"
-    v-bind:class="{invisible: !this.model.visible}">
+    v-bind:class="{invisible: !this.model.visible, active: isActive()}">
     <div class="title">
       <TreeviewToggle :complex="model.children.length > 0" v-on:requestClose="onCollapse" :collapse="isCollapse"></TreeviewToggle>
       <div class="name"
@@ -47,6 +47,9 @@ export default {
       e.stopPropagation();
       proxy.cache.activeItem = this.model.__index;
       proxy.selectItem(proxy.cache.activeItem);
+    },
+    isActive() {
+      return proxy.cache.activeItem == this.model.__index;
     }
   }
 };
@@ -66,8 +69,12 @@ export default {
   font-family: sans-serif;
   cursor: pointer;
 }
+.tree-item.active .name {
+  background-color: green;
+}
 .tree-item.invisible .name {
-  background-color: gray;
+  color: black;
+  font-style: italic;
 }
 .tree-item {
   margin-left: 5px;
