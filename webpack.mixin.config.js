@@ -19,7 +19,8 @@ const baseConfig = {
     mode,
 
     entry: {
-        "main": path.join(__dirname, CLIENT_ENTRY_DIR, 'main.js'),
+        "main4v": path.join(__dirname, CLIENT_ENTRY_DIR, 'main4v.js'),
+        "main5v": path.join(__dirname, CLIENT_ENTRY_DIR, 'main5v.js'),
     },
 
     output: {
@@ -62,9 +63,9 @@ const isDevServer = process.argv.find(
 let webpackConfig = devConfig;
 if (isDevServer) {
     webpackConfig = merge(devConfig, {
-        entry: {
-            "libs": path.join(nodeModules, 'pixi.js/dist', 'pixi.min.js'),
-        },
+        // entry: {
+        //     "libs": path.join(nodeModules, 'pixi.js/dist', 'pixi.min.js'),
+        // },
         output: {
             path: CLIENT_OUTPUT_DIR,
         },
