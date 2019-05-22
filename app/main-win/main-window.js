@@ -10,6 +10,4 @@ mainWindow.loadURL(url.format({
   protocol: 'file:',
 }));
 
-const aa = new BrowserWindow({});
-
 module.exports = mainWindow;

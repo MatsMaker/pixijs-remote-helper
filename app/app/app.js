@@ -1,6 +1,6 @@
 const app = require('electron').app;
-const appReadyListener = require('./app/app-ready.listener');
-const appCloseListener = require('./app/app-close.listener');
+const appReadyListener = require('./app-ready.listener');
+const appCloseListener = require('./app-close.listener');
 
 app.setName('PixijsRTools');
 
