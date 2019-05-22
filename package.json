@@ -8,6 +8,7 @@
   "scripts": {
     "preinstall": "npm i -g http-server nodemon",
     "babel": "babel --presets es2015 js/main.js",
+    "app": "electron ./app/main.js",
     "server:dev": "nodemon --config nodemon.json server/index.js",
     "client:dev": "webpack-dev-server --mode development --config webpack.client.config.js",
     "client:prod": "webpack --mode production -p --progress --config webpack.client.config.js",
@@ -41,6 +42,7 @@
     "webpack-merge": "^4.1.4"
   },
   "dependencies": {
+    "electron": "^5.0.1",
     "express": "^4.16.4",
     "pixi.js": "^5.0.3",
     "socket.io": "^2.1.1",
