@@ -8,7 +8,8 @@
   "scripts": {
     "preinstall": "npm i -g http-server nodemon",
     "babel": "babel --presets es2015 js/main.js",
-    "app": "electron ./app/main.js",
+    "start": "electron ./app/app.js",
+    "start:dev": "electron --inspect-brk ./app/app.js",
     "server:dev": "nodemon --config nodemon.json server/index.js",
     "client:dev": "webpack-dev-server --mode development --config webpack.client.config.js",
     "client:prod": "webpack --mode production -p --progress --config webpack.client.config.js",

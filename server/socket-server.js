@@ -1,5 +1,5 @@
-const server = require('http').createServer();
-const io = require('socket.io')(server);
+const socketServer = require('http').createServer();
+const io = require('socket.io')(socketServer);
 
 const mixinRoomPrefix = 'mixin-';
 const clientRoomPrefix = 'client-';
@@ -30,4 +30,4 @@ io.on('connection', function (socket) {
 
 });
 
-module.exports = server;
+module.exports = socketServer;
