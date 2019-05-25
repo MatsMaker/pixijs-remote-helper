@@ -10,7 +10,12 @@ Tools for remote inspecting pixijs application
 
 **First time need do:**
 
-1. Clone this repository
+1. *Install ways*:
+ - Install from npm
+```bush
+npm install -g pixijs-remote-helper
+```
+  - Clone this repository
 ```bush
 $cd ./pixijs-remote-helper
 $npm run build

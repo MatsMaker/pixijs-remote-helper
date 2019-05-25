@@ -1,6 +1,6 @@
 {
   "name": "pixijs-remote-helper",
-  "version": "0.2.0",
+  "version": "1.0.0",
   "description": "",
   "bin": {
     "pixihelper": "./bin/pixihelper"
@@ -16,7 +16,12 @@
     "build": "npm run client:prod && npm run mixin:prod",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": "",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/MatsMaker/pixijs-remote-helper.git"
+  },
+  "keywords": ["pixijs", "pixi", "devtools", "phaser", "phaserjs", "remoute", "helper", "tools"],
+  "author": "Matsitsky Sergey",
   "license": "ISC",
   "devDependencies": {
     "@babel/core": "^7.1.2",
