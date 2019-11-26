@@ -43,7 +43,6 @@
     "webpack-merge": "^4.1.4"
   },
   "dependencies": {
-    "electron": "^5.0.1",
     "express": "^4.16.4",
     "pixi.js": "^5.0.3",
     "socket.io": "^2.1.1",
