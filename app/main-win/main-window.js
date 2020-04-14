@@ -10,4 +10,9 @@ mainWindow.loadURL(url.format({
   protocol: 'file:',
 }));
 
+if (process.env.NODE_ENV !== 'production') {
+  mainWindow.webContents.openDevTools()
+}
+
+
 module.exports = mainWindow;
