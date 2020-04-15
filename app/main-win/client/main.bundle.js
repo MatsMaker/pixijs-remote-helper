@@ -1018,8 +1018,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
 
 
 
@@ -3851,7 +3849,7 @@ exports = module.exports = __webpack_require__(/*! ../../node_modules/css-loader
 
 
 // module
-exports.push([module.i, ".main {\n  flex-direction: column;\n}\n.searchview {\n  padding: 15px 25px;\n  background-color: gainsboro;\n}\n.treeview,\n.detailview {\n  overflow-y: auto;\n  padding: 15px;\n  width: 50%;\n}\n", ""]);
+exports.push([module.i, ".main {\n  display: flex;\n  height: 100%;\n}\n.main > :first-child {\n    border-right: 1px solid lightgray;\n}\n.searchview {\n  padding: 15px 25px;\n  background-color: gainsboro;\n}\n.treeview,\n.detailview {\n  overflow-y: auto;\n  padding: 15px;\n  flex: 1;\n}\n", ""]);
 
 // exports
 
@@ -12697,18 +12695,16 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", { staticClass: "main" }, [
-    _c(
-      "div",
-      { staticClass: "row" },
-      [
-        _c("TreeView", { staticClass: "treeview" }),
-        _vm._v(" "),
-        _c("DetailView", { staticClass: "detailview" })
-      ],
-      1
-    )
-  ])
+  return _c(
+    "div",
+    { staticClass: "main" },
+    [
+      _c("TreeView", { staticClass: "treeview" }),
+      _vm._v(" "),
+      _c("DetailView", { staticClass: "detailview" })
+    ],
+    1
+  )
 }
 var staticRenderFns = []
 render._withStripped = true

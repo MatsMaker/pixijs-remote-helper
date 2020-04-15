@@ -1,10 +1,8 @@
 <template>
   <div class="main">
     <!-- <Search class="searchview"></Search> -->
-    <div class="row">
       <TreeView class="treeview"></TreeView>
       <DetailView class="detailview"></DetailView>
-    </div>
   </div>
 </template>
 
@@ -20,7 +18,11 @@ export default {
 
 <style lang="scss">
 .main {
-  flex-direction: column;
+  display: flex;
+  height: 100%;
+  >:first-child {
+    border-right: 1px solid lightgray;
+  }
 }
 .searchview {
   padding: 15px 25px;
@@ -30,6 +32,6 @@ export default {
 .detailview {
   overflow-y: auto;
   padding: 15px;
-  width: 50%;
+  flex: 1;
 }
 </style>
