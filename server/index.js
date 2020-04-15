@@ -9,8 +9,8 @@ const PORT = process.env.SOCKET_PORT || 3000;
 const SOCKET_PORT = process.env.SOCKET_PORT || 3010;
 
 
-console.log(path.join(__dirname, 'statik'));
-app.use(express.static(path.join(__dirname, '../statik')));
+console.log(path.join(__dirname, 'static'));
+app.use(express.static(path.join(__dirname, '../static')));
 app.listen(PORT);
 
 const mixinRoomPrefix = 'mixin-';

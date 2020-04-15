@@ -1,6 +1,6 @@
 const app = require('electron').app;
 
-// app.name = 'PixijsRTools'
+app.name = 'PixijsRemoteHelper'
 app.allowRendererProcessReuse = true
 
 const appReadyListener = require('./app-ready.listener');

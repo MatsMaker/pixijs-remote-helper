@@ -1253,6 +1253,7 @@ __webpack_require__.r(__webpack_exports__);
     },
     onHide: function onHide(e) {
       e.stopPropagation();
+      this.onSelectItem(e);
       _proxy__WEBPACK_IMPORTED_MODULE_2__["default"].updateItem(this.model.__index, "visible", !this.model.visible);
     },
     onSelectItem: function onSelectItem(e) {
@@ -3907,7 +3908,7 @@ exports = module.exports = __webpack_require__(/*! ../../node_modules/css-loader
 
 
 // module
-exports.push([module.i, ".name {\n  display: inline-block;\n  min-width: 15px;\n  min-height: 1em;\n  background-color: cadetblue;\n  border-radius: 4px;\n  border: 1px darkcyan solid;\n  color: azure;\n  padding: 4px;\n  font-size: 12px;\n  font-family: sans-serif;\n  cursor: pointer;\n}\n.tree-item.active .name.active {\n  background-color: green;\n}\n.tree-item.invisible .name {\n  color: black;\n  font-style: italic;\n}\n.tree-item {\n  margin-left: 5px;\n}\n.tree-item .collapse {\n  display: none;\n}\n.title {\n  display: flex;\n}\n.interactive-item {\n  cursor: pointer;\n}\n", ""]);
+exports.push([module.i, ".name {\n  display: inline-block;\n  min-width: 15px;\n  min-height: 1em;\n  /* background-color: cadetblue; */\n  border-radius: 4px;\n  /* border: 1px darkcyan solid; */\n  color: #7b1972;\n  padding: 4px;\n  font-size: 12px;\n  font-family: sans-serif;\n  cursor: pointer;\n}\n.tree-item {\n  margin-left: 5px;\n  border-radius: 3px;\n}\n.tree-item.active {\n  background-color: #cfe8fc;\n}\n.tree-item.active .name.active {\n    /* background-color: green; */\n}\n.tree-item.invisible .name {\n  color: #0306006d;\n  font-style: italic;\n}\n.tree-item .collapse {\n  display: none;\n}\n.title {\n  display: flex;\n}\n.interactive-item {\n  cursor: pointer;\n  white-space: nowrap;\n}\n", ""]);
 
 // exports
 
@@ -12936,7 +12937,7 @@ var render = function() {
               class: { active: _vm.isActive() },
               on: { click: _vm.onSelectItem }
             },
-            [_vm._v("\n      " + _vm._s(_vm.model.name) + "\n    ")]
+            [_vm._v("\n      [" + _vm._s(_vm.model.name) + "]\n    ")]
           ),
           _vm._v(" "),
           _c(

@@ -16,7 +16,7 @@ if (!process.env.NODE_ENV) {
 const mode = process.env.NODE_ENV;
 
 const ENTRY_DIR = '/client_src';
-const OUTPUT_DIR = (mode === "development") ? '/' : "/statik";
+const OUTPUT_DIR = (mode === "development") ? '/' : "/static";
 const nodeModules = path.resolve(__dirname, 'node_modules');
 
 const baseConfig = {
@@ -59,7 +59,7 @@ const baseConfig = {
                 loaders: ["style-loader", "css-loader", "sass-loader"]
             },
             {
-                test: /\.png$/,
+                test: /\.(png|jpg)$/,
                 loader: "url-loader"
             },
             {
