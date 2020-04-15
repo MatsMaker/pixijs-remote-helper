@@ -56,6 +56,25 @@ $npm run mixin:dev
 ```
 Then open http://localhost:3080/mixin.html page with pixijs app
 
+# For development start web application
+
+You must have installed node.js then, clone this repo and next:
+
+    npm i
+
+    // run example pixi.js app
+    npm run mixin:dev 
+
+    // run application
+    npm run web:dev
+
+    // run middle server
+    npm run server:dev
+
+
+Then open http://localhost:8080/app.html for open web client
+and open http://localhost:3080/mixin4v.html or http://localhost:3080/mixin5v.html  for open mixin examle.
+
 # For development start electron application
 
 You must have installed node.js then, clone this repo and next:
@@ -66,7 +85,7 @@ You must have installed node.js then, clone this repo and next:
     npm run mixin:dev 
 
     // run application
-    npm run start:dev
+    npm run app:dev
 
 
 Then open http://localhost:8080/main.html for open client

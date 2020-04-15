@@ -77,7 +77,7 @@ const baseConfig = {
         }),
         new VueLoaderPlugin(),
         new HtmlWebpackPlugin({
-            title: 'PixiJs remoute helper',
+            title: 'PixiJs Remoute Helper',
             filename: 'main.html',
             template: path.join(__dirname, ENTRY_DIR, 'main.html'),
         })
