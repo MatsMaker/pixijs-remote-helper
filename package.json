@@ -1,25 +1,39 @@
 {
   "name": "pixijs-remote-helper",
-  "version": "0.2.0",
+  "version": "1.0.0",
   "description": "",
   "bin": {
     "pixihelper": "./bin/pixihelper"
   },
   "scripts": {
-    "preinstall": "npm i -g http-server nodemon",
     "babel": "babel --presets es2015 js/main.js",
     "start": "electron ./app_src",
     "start:dev": "webpack --mode development --config webpack.app.config.js & electron ./app_src",
     "start:dev:brk": "webpack --mode development --config webpack.app.config.js & electron --inspect-brk ./app_src",
     "server:dev": "nodemon --config nodemon.json server/index.js",
-    "client:dev": "webpack-dev-server --mode development --config webpack.client.config.js",
-    "client:prod": "webpack --mode production -p --progress --config webpack.client.config.js",
+    "web:dev": "webpack-dev-server --mode development --config webpack.client.config.js",
+    "web:prod": "webpack --mode production -p --progress --config webpack.client.config.js",
     "mixin:dev": "webpack-dev-server --mode development --config webpack.mixin.config.js",
     "mixin:prod": "webpack --mode production -p --progress --config webpack.mixin.config.js",
-    "build": "npm run client:prod && npm run mixin:prod",
+    "build": "npm run web:prod && npm run mixin:prod",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": "",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/MatsMaker/pixijs-remote-helper.git"
+  },
+  "keywords": [
+    "pixijs",
+    "pixi",
+    "devtools",
+    "phaser",
+    "phaserjs",
+    "remoute",
+    "helper",
+    "tools",
+    "debugger"
+  ],
+  "author": "Matsitsky Sergey",
   "license": "ISC",
   "devDependencies": {
     "@babel/core": "^7.12.9",

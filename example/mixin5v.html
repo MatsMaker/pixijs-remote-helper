@@ -28,6 +28,9 @@
             // create a new Sprite that uses the image name that we just generated as its source
             const dude = PIXI.Sprite.from('assets/eggHead.png');
 
+            dude.name = 'name_' + i;
+
+
             // set the anchor point so the texture is centerd on the sprite
             dude.anchor.set(0.5);
 

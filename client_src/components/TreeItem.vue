@@ -7,7 +7,7 @@
       <div class="name"
         v-bind:class="{active: isActive()}"
         @click="onSelectItem">
-        {{ model.name }}
+        [{{ model.name }}]
       </div>
       <span class="interactive-item" @click="onHide">{visible: {{ this.model.visible }}}</span>
     </div>
@@ -42,6 +42,7 @@ export default {
     },
     onHide(e) {
       e.stopPropagation();
+      this.onSelectItem(e);
       proxy.updateItem(this.model.__index, "visible", !this.model.visible);
     },
     onSelectItem(e) {
@@ -61,24 +62,28 @@ export default {
   display: inline-block;
   min-width: 15px;
   min-height: 1em;
-  background-color: cadetblue;
+  /* background-color: cadetblue; */
   border-radius: 4px;
-  border: 1px darkcyan solid;
-  color: azure;
+  /* border: 1px darkcyan solid; */
+  color: #7b1972;
   padding: 4px;
   font-size: 12px;
   font-family: sans-serif;
   cursor: pointer;
 }
-.tree-item.active .name.active {
-  background-color: green;
-}
-.tree-item.invisible .name {
-  color: black;
-  font-style: italic;
-}
 .tree-item {
   margin-left: 5px;
+  border-radius: 3px;
+}
+.tree-item.active {
+  background-color:#cfe8fc;
+  .name.active {
+    /* background-color: green; */
+  }
+}
+.tree-item.invisible .name {
+  color: #0306006d;
+  font-style: italic;
 }
 .tree-item .collapse {
   display: none;
@@ -88,6 +93,7 @@ export default {
 }
 .interactive-item {
   cursor: pointer;
+  white-space: nowrap;
 }
 </style>
 

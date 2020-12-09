@@ -61,13 +61,13 @@ const baseConfig = {
                 loaders: ["style-loader", "css-loader", "sass-loader"]
             },
             {
-                test: /\.png$/,
-                loader: "url-loader"
+                test: /\.(png|jpg)$/,
+                loader: "url-loader",
             },
             {
                 test: /\.html$/,
                 loader: 'html-loader'
-            }
+            },
         ]
     },
     plugins: [
@@ -82,7 +82,7 @@ const baseConfig = {
             title: 'PixiJs remoute helper',
             filename: 'main.html',
             template: path.join(__dirname, ENTRY_DIR, 'main.html'),
-        })
+        }),
     ]
 };
 
