@@ -24,7 +24,7 @@ $npm i -g ../pixijs-remote-helper
 
 2. Add mixin(./mixin build/main.bundle.js) script to pixijs app page where need debugging
 
-3. Run app from terminal 
+3. Run app from terminal
 ```
 $pixihelper
 ```
@@ -54,7 +54,7 @@ before add *mixin script* on page define __PIXI_HELPER_PROXY_HOST='http://localh
 ```bush
 $npm run mixin:dev
 ```
-Then open http://localhost:3080/mixin.html page with pixijs app
+Then open http://localhost:3080/mixin5v.html page with pixijs app
 
 # For development start web application
 
@@ -84,9 +84,12 @@ You must have installed node.js then, clone this repo and next:
     // run example pixi.js app
     npm run mixin:dev 
 
-    // run application
+    // run watcher of web client witch is integrated in application
+    npm run client:dev 
+
+    // run electron application
     npm run app:dev
 
 
-Then open http://localhost:8080/main.html for open client
-and open http://localhost:3080/mixin4v.html or http://localhost:3080/mixin5v.html  for open mixin examle.
+Then opened electron app
+and open http://localhost:3080/mixin4v.html or http://localhost:3080/mixin5v.html  for open mixin example.
