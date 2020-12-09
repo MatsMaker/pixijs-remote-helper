@@ -16,7 +16,7 @@ if (!process.env.NODE_ENV) {
 const mode = process.env.NODE_ENV;
 
 const ENTRY_DIR = '/client_src';
-const OUTPUT_DIR = '/app/main-win/client';
+const OUTPUT_DIR = '/app_src/main-win/client';
 const nodeModules = path.resolve(__dirname, 'node_modules');
 
 const baseConfig = {
